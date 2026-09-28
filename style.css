@@ -1,128 +1,112 @@
-/* Base Styles & CSS Variables */
-:root {
-  --primary-color: #4f46e5;
-  --primary-hover: #4338ca;
-  --bg-color: #0f172a;
-  --card-bg: #1e293b;
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
-  --border-color: #334155;
-  --radius: 12px;
-}
-
+/* --- CSS Reset & Variables --- */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+:root {
+  --bg-color: #0f172a;
+  --card-bg: #1e293b;
+  --primary-color: #6366f1;
+  --primary-hover: #4f46e5;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --border-radius: 12px;
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--bg-color);
   color: var(--text-main);
   min-height: 100vh;
-  line-height: 1.5;
+  padding: 2rem 1rem;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-/* Header */
-.header {
-  padding: 3rem 0 1.5rem;
+/* --- Header & Search Form --- */
+header {
   text-align: center;
+  margin-bottom: 2rem;
 }
 
-.logo {
+header h1 {
   font-size: 2.5rem;
-  font-weight: 800;
-  letter-spacing: -0.025em;
-  color: #fff;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #818cf8, #c084fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.tagline {
-  color: var(--text-muted);
-  font-size: 1rem;
-}
-
-/* Search Form */
-.search-section {
-  margin: 1.5rem 0 2.5rem;
-}
-
-.search-form {
+#search-form {
   display: flex;
-  gap: 0.75rem;
-  max-width: 600px;
+  justify-content: center;
+  gap: 0.5rem;
+  max-width: 500px;
   margin: 0 auto;
 }
 
-.search-input {
+#search-input {
   flex: 1;
-  padding: 0.85rem 1.25rem;
-  font-size: 1rem;
-  border-radius: var(--radius);
-  border: 1px solid var(--border-color);
+  padding: 0.75rem 1rem;
+  border-radius: var(--border-radius);
+  border: 1px solid #334155;
   background-color: var(--card-bg);
   color: var(--text-main);
+  font-size: 1rem;
   outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.2s;
 }
 
-.search-input:focus {
+#search-input:focus {
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.25);
 }
 
-.search-btn {
-  padding: 0.85rem 1.75rem;
+#search-form button {
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
+  border: none;
+  background-color: var(--primary-color);
+  color: #fff;
   font-size: 1rem;
   font-weight: 600;
-  color: #ffffff;
-  background-color: var(--primary-color);
-  border: none;
-  border-radius: var(--radius);
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.1s ease;
+  transition: background-color 0.2s;
 }
 
-.search-btn:hover {
+#search-form button:hover {
   background-color: var(--primary-hover);
 }
 
-.search-btn:active {
-  transform: scale(0.98);
+/* --- Main Content & Status Messages --- */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Dynamic Result Counter */
-.results-count {
-  font-size: 1rem;
+#status-message {
+  text-align: center;
+  font-size: 1.1rem;
   color: var(--text-muted);
-  margin-bottom: 1.5rem;
-  font-weight: 500;
+  margin-bottom: 2rem;
 }
 
-/* Results Responsive Grid */
-.results-grid {
+/* --- Results Grid --- */
+.grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1.5rem;
-  padding-bottom: 3rem;
 }
 
-/* Image Card Styling */
+/* --- Card Styling & Animations --- */
 .card {
   background-color: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius);
+  border-radius: var(--border-radius);
   overflow: hidden;
+  border: 1px solid #334155;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  animation: fadeIn 0.4s ease-in-out;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .card:hover {
@@ -130,36 +114,29 @@ body {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
-.card a {
-  text-decoration: none;
-  color: inherit;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
 .card img {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  display: block;
+  background-color: #020617;
 }
 
-.card-title {
+.card p {
   padding: 1rem;
-  font-size: 0.875rem;
+  font-size: 0.95rem;
   color: var(--text-main);
+  text-align: center;
   word-break: break-word;
-  line-height: 1.4;
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 600px) {
-  .search-form {
-    flex-direction: column;
+/* Card Fade-In Keyframe */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
-  
-  .search-btn {
-    width: 100%;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
