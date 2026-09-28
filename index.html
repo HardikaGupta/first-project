@@ -1,23 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PixelPulse</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PixelPulse | Image Search</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>PixelPulse</h1>
-    <form id="search-form">
-      <input id="search-input" type="search" placeholder="Search images..." />
-      <button type="submit">Search</button>
-    </form>
+
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">PixelPulse</h1>
+      <p class="tagline">Search and discover high-quality images from Wikimedia Commons.</p>
+    </div>
   </header>
 
-  <main>
-    <p id="status"></p>
-    <section id="results"></section>
+  <main class="container">
+    <!-- Search Form Section -->
+    <section class="search-section">
+      <form id="search-form" class="search-form">
+        <input 
+          type="text" 
+          id="search-input" 
+          class="search-input" 
+          placeholder="Search for images (e.g., cats, ocean, mountains)..." 
+          autocomplete="off"
+        >
+        <button type="submit" id="search-btn" class="search-btn">Search</button>
+      </form>
+    </section>
+
+    <!-- Results Display Section -->
+    <section class="results-section">
+      <!-- JavaScript will insert #results-count here automatically -->
+      <div id="results" class="results-grid"></div>
+    </section>
   </main>
 
   <script src="script.js"></script>
