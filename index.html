@@ -3,21 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PixelPulse</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>My Image Search App</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1>PixelPulse</h1>
+    <h1>Image Pulse</h1>
     <form id="search-form">
-      <input id="search-input" type="search" placeholder="Search images..." />
+      <input type="text" id="search-input" placeholder="Search for images..." required />
       <button type="submit">Search</button>
     </form>
   </header>
 
   <main>
-    <p id="status"></p>
-    <section id="results"></section>
+    <!-- Status message container for Loading, Empty, and Error states -->
+    <p id="status-message">Type a word and press Search to see images.</p>
+    
+    <!-- Container to display results -->
+    <div id="results-grid" class="grid"></div>
   </main>
 
   <script src="script.js"></script>
